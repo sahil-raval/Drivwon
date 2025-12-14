@@ -12,6 +12,7 @@ import Quotation from "@/pages/quotation";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
 import PageTransition from "@/components/ui/PageTransition";
+import Preloader from "@/components/ui/Preloader";
 import { useAudio } from "@/lib/audio";
 import { Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -49,6 +50,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <Preloader />
         <SmoothScroll>
           <CustomCursor />
           <Toaster />

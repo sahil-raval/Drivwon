@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useAudio } from "@/lib/audio";
+import logo from "@/assets/AIWEBSPHERE.png";
 
 const links = [
   { href: "/home", label: "Home" },
@@ -41,7 +42,7 @@ export default function Navbar() {
             onMouseEnter={playHover}
             onClick={playClick}
           >
-            <img src="/AIWEBSPHERE.png" alt="AI Web Sphere Logo" className="inline-block w-8 h-8 mr-2 -mt-1" />
+            <img src={logo} alt="AI Web Sphere Logo" className="inline-block w-8 h-8 mr-2 -mt-1" />
             AI WEB <span className="text-primary">SPHERE</span>
           </a>
         </Link>

@@ -18,11 +18,12 @@ const clickSound = new Howl({
 
 // Background ambience - Deep, immersive drone
 const bgMusic = new Howl({
-  src: '/background.mp3', // Path relative to the public folder
+  src: ['https://cdn.pixabay.com/download/audio/2022/10/25/audio_9486c31043.mp3?filename=space-drone-27835.mp3'], 
   loop: true,
-  volume: 0.2,
+  volume: 0.2, // Subtle background
   autoplay: false,
-  html5: true,
+  html5: true, // Use HTML5 Audio to support larger files/streaming
+  preload: true
 });
 
 export function useAudio() {
@@ -30,21 +31,36 @@ export function useAudio() {
   const [hasInteracted, setHasInteracted] = useState(false);
 
   useEffect(() => {
-    // Browsers block auto-playing audio until interaction
+    // Browsers (especially mobile) block auto-playing audio until user interaction
     const handleInteraction = () => {
       if (!hasInteracted) {
         setHasInteracted(true);
-        if (!isMuted) {
-          bgMusic.fade(0, 0.2, 3000); // Slow fade in
-          bgMusic.play();
+        
+        // Mobile browsers require audio context to be resumed/started within an interaction
+        if (typeof (window as any).Howler !== 'undefined') {
+          (window as any).Howler.ctx?.resume().then(() => {
+            if (!isMuted && !bgMusic.playing()) {
+              bgMusic.play();
+              bgMusic.fade(0, 0.2, 3000); // Slow fade in
+            }
+          });
+        } else {
+           if (!isMuted && !bgMusic.playing()) {
+            bgMusic.play();
+            bgMusic.fade(0, 0.2, 3000);
+          }
         }
       }
     };
 
+    // Listen for common touch and click events for mobile compatibility
     window.addEventListener('click', handleInteraction);
+    window.addEventListener('touchstart', handleInteraction);
     window.addEventListener('keydown', handleInteraction);
+    
     return () => {
       window.removeEventListener('click', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
       window.removeEventListener('keydown', handleInteraction);
     };
   }, [hasInteracted, isMuted]);

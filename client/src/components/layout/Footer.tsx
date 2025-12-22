@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import logo from "@/assets/AIWEBSPHERE.png";
 
 export default function Footer() {
   return (
@@ -6,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-6 grid md:grid-cols-4 gap-10">
         <div className="space-y-4">
           <h3 className="text-2xl font-display font-bold text-white">
-            <img src="/AIWEBSPHERE.png" alt="AI Web Sphere Logo" className="inline-block w-8 h-8 mr-2 -mt-1" />
+            <img src={logo} alt="AI Web Sphere Logo" className="inline-block w-8 h-8 mr-2 -mt-1" />
             AI WEB <span className="text-primary">SPHERE</span>
           </h3>
           <p className="text-muted-foreground text-sm">

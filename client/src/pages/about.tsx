@@ -158,7 +158,7 @@ export default function About() {
                 viewport={{ once: true, margin: "-200px" }}
               >
                 <div className="grid md:grid-cols-2 gap-16 items-center">
-                  <div className={i % 2 === 1 ? "order-2" : "order-1"}>
+                  <div className="order-1">
                     <div className="relative w-full aspect-square overflow-hidden rounded-3xl border border-white/10 bg-white/5">
                       {!imageErrors[member.name] ? (
                         <img
@@ -183,7 +183,7 @@ export default function About() {
                     </div>
                   </div>
 
-                  <div className={i % 2 === 1 ? "order-1" : "order-2"}>
+                  <div className="order-2">
                     <motion.div
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}

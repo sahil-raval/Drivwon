@@ -1,5 +1,5 @@
 {
-  "include": ["public/src/**/*", "shared/**/*", "server/**/*"],
+  "include": ["client/src/**/*", "shared/**/*", "server/**/*"],
   "exclude": ["node_modules", "build", "dist", "**/*.test.ts"],
   "compilerOptions": {
     "ignoreDeprecations": "6.0",
@@ -21,7 +21,7 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": ["public/src/*"],
+      "@/*": ["client/src/*"],
       "@shared/*": ["shared/*"]
     },
 

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { useAudio } from "@/lib/audio";
 
 const links = [
-  { href: "/", label: "Home" },
+  { href: "/home", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/quotation", label: "Get Quote" },
@@ -35,12 +35,13 @@ export default function Navbar() {
       )}
     >
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/">
+        <Link href="/home">
           <a 
             className="text-2xl font-display font-bold tracking-tighter text-white hover:text-primary transition-colors cursor-pointer"
             onMouseEnter={playHover}
             onClick={playClick}
           >
+            <img src="/AIWEBSPHERE.png" alt="AI Web Sphere Logo" className="inline-block w-8 h-8 mr-2 -mt-1" />
             AI WEB <span className="text-primary">SPHERE</span>
           </a>
         </Link>

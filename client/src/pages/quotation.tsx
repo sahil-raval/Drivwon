@@ -10,6 +10,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -22,6 +24,8 @@ const formSchema = z.object({
 
 export default function Quotation() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -34,13 +38,50 @@ export default function Quotation() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Quote Request Received",
-      description: "We will review your requirements and get back to you shortly.",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+    
+    // EmailJS Configuration
+    // Replace these with your actual EmailJS credentials
+    const serviceId = 'service_uhjn7qi';
+    const templateId = 'template_idiqwnr';
+    const publicKey = '_5OMEaM1z5IXystAq';
+
+    // Prepare template parameters
+    const templateParams = {
+      from_name: values.name,
+      from_email: values.email,
+      company: values.company || 'Not provided',
+      service: values.service,
+      budget: values.budget,
+      message: values.details,
+      to_email: 'info@aiwebsphere.com.au', // Your email where quotes will be sent
+    };
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+      
+      toast({
+        title: "Quote Request Received",
+        description: "We will review your requirements and get back to you shortly.",
+      });
+      
+      form.reset();
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send quote request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -54,7 +95,7 @@ export default function Quotation() {
           className="max-w-3xl mx-auto"
         >
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">Request a Quote</h1>
+            <h1 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">Request a Quote</h1>
             <p className="text-xl text-muted-foreground">
               Tell us about your project goals and budget, and we'll help you build the perfect solution.
             </p>
@@ -62,7 +103,7 @@ export default function Quotation() {
 
           <div className="bg-white/5 p-8 md:p-12 rounded-3xl border border-white/10">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <div className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
@@ -175,10 +216,14 @@ export default function Quotation() {
                   )}
                 />
 
-                <Button type="submit" className="w-full h-14 text-lg bg-primary hover:bg-primary/90 text-white rounded-xl font-bold">
-                  Submit Quote Request
+                <Button 
+                  onClick={form.handleSubmit(onSubmit)}
+                  className="w-full h-14 text-lg bg-primary hover:bg-primary/90 text-white rounded-xl font-bold"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Submit Quote Request"}
                 </Button>
-              </form>
+              </div>
             </Form>
           </div>
         </motion.div>

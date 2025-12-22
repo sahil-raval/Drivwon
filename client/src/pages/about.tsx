@@ -1,113 +1,243 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import AboutScene from "@/components/3d/AboutScene";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { CheckCircle2, Award, Users, Lightbulb, Target } from "lucide-react";
-import TextReveal from "@/components/ui/TextReveal";
+import { motion } from "framer-motion";
 import { useRef } from "react";
+import { useScroll } from "framer-motion";
 
 export default function About() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
+    offset: ["start start", "end end"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-
   return (
-    <div className="min-h-screen bg-black text-foreground overflow-hidden" ref={containerRef}>
+    <div
+      ref={containerRef}
+      className="min-h-screen bg-black text-white selection:bg-primary selection:text-white"
+    >
       <Navbar />
-      
-      {/* 3D Background Layer - Fixed */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <AboutScene />
-      </div>
-      
-      {/* Content Layer */}
-      <div className="relative z-10 pt-32 pb-20">
-        
-        {/* Hero Section */}
-        <div className="container mx-auto px-6 mb-32 min-h-[60vh] flex flex-col justify-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-5xl"
+
+      {/* Hero Section */}
+      <motion.section className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-12 pt-20">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-center max-w-7xl"
+        >
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-sm md:text-base font-mono text-white/50 mb-6 tracking-widest uppercase"
           >
-            <h1 className="text-6xl md:text-9xl font-display font-bold mb-8 leading-none tracking-tighter mix-blend-difference">
-              <TextReveal text="We Shape Reality" />
-            </h1>
-            <p className="text-2xl md:text-3xl text-white/80 font-light max-w-2xl leading-relaxed backdrop-blur-sm">
-              Transcending the boundaries between the physical and digital worlds.
+            (about aiwebsphere.)
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.1 }}
+            className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50  "
+          >
+            Technology That <br />
+            <span className="text-primary">Empowers</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-lg md:text-xl text-white/70 font-light mb-12"
+          >
+            Building intelligent, scalable, and impact-driven digital solutions that help businesses evolve and lead.
+          </motion.p>
+        </motion.div>
+      </motion.section>
+
+      {/* Our Vision Section */}
+      <motion.section className="relative py-32 md:py-48 px-6 md:px-12 border-t border-white/10">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-200px" }}
+          >
+            <p className="text-sm font-mono text-white/50 uppercase tracking-widest mb-6">
+              OUR VISION
+            </p>
+            <h2 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-8">
+              Technology should empower people, simplify <span className="text-primary">complexity</span>, and create measurable value.
+            </h2>
+            <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed">
+              By combining AI innovation with industry insight, we aim to help businesses evolve, adapt, and lead in a rapidly changing digital world. We believe advanced technology should be practical, secure, and human-centric.
             </p>
           </motion.div>
         </div>
+      </motion.section>
 
-        {/* Stats / Features Grid */}
-        <div className="container mx-auto px-6 mb-32">
-          <div className="grid md:grid-cols-3 gap-8">
+      {/* About AIWebSphere Section */}
+      <motion.section className="relative py-32 md:py-48 px-6 md:px-12 border-t border-white/10">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-200px" }}
+            className="space-y-8"
+          >
+            <div>
+              <p className="text-sm font-mono text-white/50 uppercase tracking-widest mb-6">
+                ABOUT AIWEBSPHERE
+              </p>
+              <h2 className="text-5xl md:text-6xl font-display font-bold leading-tight mb-8">
+                Next-Generation <span className="text-primary">Technology</span> Solutions
+              </h2>
+            </div>
+
+            <div className="space-y-6">
+              <p className="text-lg text-white/80 font-light leading-relaxed">
+                AIWebSphere is a next-generation technology company focused on building intelligent, scalable, and impact-driven digital solutions. We specialize in Artificial Intelligence, automation, web platforms, and smart business systems that help organizations streamline operations, enhance decision-making, and unlock new growth opportunities.
+              </p>
+              <p className="text-lg text-white/80 font-light leading-relaxed">
+                Our philosophy is simple: advanced technology should be practical, secure, and <span className="text-primary">human-centric</span>. By combining cutting-edge AI research with real-world industry experience, AIWebSphere delivers solutions that are innovative yet grounded, powerful yet easy to adopt.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Team Members Section */}
+      <motion.section className="relative py-32 md:py-48 px-6 md:px-12 border-t border-white/10">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <p className="text-sm font-mono text-white/50 uppercase tracking-widest mb-4">
+              LEADERSHIP
+            </p>
+            <h2 className="text-5xl md:text-7xl font-display font-bold">
+              Bridging <span className="text-primary">Innovation</span> and Execution
+            </h2>
+          </motion.div>
+
+          <div className="space-y-32">
             {[
-              { icon: <Users className="w-8 h-8" />, label: "World Class Team", desc: "Designers & Engineers from top tier firms" },
-              { icon: <Award className="w-8 h-8" />, label: "Award Winning", desc: "Recognized by Awwwards, CSSDA, and FWA" },
-              { icon: <Target className="w-8 h-8" />, label: "Result Driven", desc: "We focus on metrics that actually matter" }
-            ].map((item, i) => (
-              <motion.div 
+              {
+                name: "Chandra Bhatt",
+                role: "Director | Strategy, Operations & Industry Integration",
+                image:"chandra.jpeg",
+                bio: "Over a decade of experience spanning technology, real estate, construction, design, and business leadership. Founder of Canvas Real Estate and Director of Daytodaydeals.com.au, Chandra brings a rare combination of technical insight and real-world industry expertise. His experience includes overseeing large product ecosystems, managing technology infrastructure, and guiding clients through complex decision-making processes. His balanced approach—combining strategy, technology, and human connection—strengthens AIWebSphere's ability to deliver solutions that are innovative, practical, and sustainable.",
+              },
+              {
+                name: "Sahil Raval",
+                role: "Director | Technology & AI Innovation",
+                image:"sahil.jpeg",
+                bio: "A technology-driven leader with deep expertise in Artificial Intelligence, software engineering, and digital transformation. Currently pursuing a Master's in Applied Artificial Intelligence with specialization in Blockchain and Software Development. With hands-on experience across AI development, full-stack web technologies, automation, and cloud platforms, Sahil has worked on diverse projects ranging from AI-powered workflow solutions and humanoid robotics research to enterprise-level web platforms. His technical expertise spans Python, JavaScript, React, Node.js, AI/ML frameworks, cloud architecture, and modern development tools. Beyond engineering, Sahil plays key roles in AI strategy, product design, digital branding, and marketing technology.",
+              },
+              
+            ].map((member, i) => (
+              <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2 }}
-                viewport={{ once: true }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-colors"
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true, margin: "-200px" }}
               >
-                <div className="mb-6 text-primary">{item.icon}</div>
-                <h3 className="text-2xl font-bold mb-2 font-display">{item.label}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
+                <div className="grid md:grid-cols-2 gap-16 items-center">
+                  <div className={i % 2 === 1 ? "order-2" : "order-1"}>
+                    <div className="relative w-full aspect-square overflow-hidden rounded-3xl border border-white/10">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                      />
+                    </div>
+                  </div>
+
+                  <div className={i % 2 === 1 ? "order-1" : "order-2"}>
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 0.2 }}
+                      viewport={{ once: true }}
+                    >
+                      <h3 className="text-4xl md:text-5xl font-display font-bold mb-3">
+                        {member.name}
+                      </h3>
+                      <p className="text-primary font-semibold text-lg mb-8">
+                        {member.role}
+                      </p>
+                      <p className="text-white/70 text-lg font-light leading-relaxed">
+                        {member.bio}
+                      </p>
+                    </motion.div>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
+      </motion.section>
 
-        {/* Big Text Section */}
-        <div className="container mx-auto px-6 py-20">
-           <motion.div 
-             initial={{ opacity: 0 }}
-             whileInView={{ opacity: 1 }}
-             className="border-l-2 border-primary pl-8 md:pl-16"
-           >
-             <p className="text-3xl md:text-5xl font-light leading-tight">
-               "We believe that a website is not just a page on the internet. It is an <span className="text-primary font-bold">extension of your consciousness</span>. It should breathe, react, and inspire."
-             </p>
-           </motion.div>
-        </div>
+      {/* Our Approach Section */}
+      <motion.section className="relative py-32 md:py-48 px-6 md:px-12 border-t border-white/10">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h2 className="text-5xl md:text-7xl font-display font-bold">
+              How We <span className="text-primary">Work</span>
+            </h2>
+          </motion.div>
 
-        {/* Why Choose Us - Horizontal Scroll Style List */}
-        <div className="container mx-auto px-6 py-20">
-          <h2 className="text-4xl font-display font-bold mb-16">The Methodology</h2>
-          <div className="space-y-4">
-             {[
-               "01. Discovery & Strategy",
-               "02. Art Direction & Design",
-               "03. Creative Development",
-               "04. Quality Assurance",
-               "05. Launch & Evolution"
-             ].map((step, i) => (
-               <motion.div
-                 key={i}
-                 initial={{ x: -50, opacity: 0 }}
-                 whileInView={{ x: 0, opacity: 1 }}
-                 transition={{ delay: i * 0.1 }}
-                 viewport={{ once: true }}
-                 className="group flex items-center justify-between p-8 border-b border-white/10 hover:border-primary transition-colors cursor-pointer bg-black/20 hover:bg-white/5"
-               >
-                 <span className="text-2xl md:text-4xl font-display font-bold group-hover:text-primary transition-colors">{step}</span>
-                 <Lightbulb className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity text-primary" />
-               </motion.div>
-             ))}
+          <div className="grid md:grid-cols-2 gap-12">
+            {[
+              {
+                title: "AI-Powered Innovation",
+                desc: "Leveraging cutting-edge AI research and machine learning to build intelligent systems that adapt and improve.",
+              },
+              {
+                title: "Industry Expertise",
+                desc: "Deep understanding of real-world challenges across multiple industries—from tech to real estate to e-commerce.",
+              },
+              {
+                title: "Practical Solutions",
+                desc: "Advanced technology that solves real problems. We balance innovation with usability and adoption.",
+              },
+              {
+                title: "Strategic Partnership",
+                desc: "We're not just vendors. We're partners invested in your success and long-term growth.",
+              },
+            ].map((approach, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="border-l-2 border-primary/30 pl-8 py-4 hover:border-primary transition-colors duration-300"
+              >
+                <h3 className="text-2xl font-display font-bold mb-4">
+                  {approach.title}
+                </h3>
+                <p className="text-white/70 text-lg font-light leading-relaxed">
+                  {approach.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </div>
-      
+      </motion.section>
+
       <Footer />
     </div>
   );

@@ -18,11 +18,11 @@ const clickSound = new Howl({
 
 // Background ambience - Deep, immersive drone
 const bgMusic = new Howl({
-  src: ['https://cdn.pixabay.com/download/audio/2022/10/25/audio_9486c31043.mp3?filename=space-drone-27835.mp3'], 
+  src: '/background.mp3', // Path relative to the public folder
   loop: true,
-  volume: 0.2, // Subtle background
+  volume: 0.2,
   autoplay: false,
-  html5: true, // Use HTML5 Audio to support larger files/streaming
+  html5: true,
 });
 
 export function useAudio() {

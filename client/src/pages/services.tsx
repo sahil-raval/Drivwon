@@ -47,7 +47,7 @@ export default function Services() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">Our Services</h1>
+          <h1 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">Our Services</h1>
           <p className="text-xl text-muted-foreground">
             We offer a full suite of digital services to help your business thrive in the modern world.
           </p>

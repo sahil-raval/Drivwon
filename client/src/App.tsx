@@ -16,16 +16,22 @@ import Preloader from "@/components/ui/Preloader";
 import { useAudio } from "@/lib/audio";
 import { Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import Launch from "@/pages/launch";
 
 function Router() {
   return (
     <PageTransition>
       <Switch>
-        <Route path="/" component={Home} />
+        <Route path="/" component={Launch} />
+        <Route path="/home" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/services" component={Services} />
         <Route path="/contact" component={Contact} />
         <Route path="/quotation" component={Quotation} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+      
+ 
         <Route component={NotFound} />
       </Switch>
     </PageTransition>
@@ -50,7 +56,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Preloader />
+
         <SmoothScroll>
           <CustomCursor />
           <Toaster />

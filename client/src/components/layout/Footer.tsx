@@ -6,6 +6,7 @@ export default function Footer() {
       <div className="container mx-auto px-6 grid md:grid-cols-4 gap-10">
         <div className="space-y-4">
           <h3 className="text-2xl font-display font-bold text-white">
+            <img src="/AIWEBSPHERE.png" alt="AI Web Sphere Logo" className="inline-block w-8 h-8 mr-2 -mt-1" />
             AI WEB <span className="text-primary">SPHERE</span>
           </h3>
           <p className="text-muted-foreground text-sm">
@@ -21,6 +22,7 @@ export default function Footer() {
             <li>Mobile Applications</li>
             <li>Digital Marketing</li>
             <li>SEO Optimization</li>
+            <li>AI Agents</li>
           </ul>
         </div>
 
@@ -30,15 +32,15 @@ export default function Footer() {
             <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
             <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
             <li><Link href="/quotation" className="hover:text-primary transition-colors">Get a Quote</Link></li>
-            <li>Careers</li>
+            <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-display font-bold text-white mb-4">Connect</h4>
           <p className="text-sm text-muted-foreground mb-4">
-            Sydney, Australia<br />
-            hello@aiwebsphere.com
+            Geelong, Australia<br />
+            info@aiwebsphere.com.au
           </p>
           <div className="flex gap-4">
             {/* Social Icons would go here */}

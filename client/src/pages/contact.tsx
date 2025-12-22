@@ -10,6 +10,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -19,6 +21,8 @@ const formSchema = z.object({
 
 export default function Contact() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -28,13 +32,47 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Message Sent",
-      description: "We'll get back to you as soon as possible.",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+    
+    // EmailJS Configuration
+    // Replace these with your actual EmailJS credentials
+    const serviceId = 'service_uhjn7qi';
+    const templateId = 'template_7uz3qfb';
+    const publicKey = '_5OMEaM1z5IXystAq';
+
+    // Prepare template parameters
+    const templateParams = {
+      from_name: values.name,
+      from_email: values.email,
+      message: values.message,
+      to_email: 'info@aiwebsphere.com.au', 
+    };
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+      
+      toast({
+        title: "Message Sent",
+        description: "We'll get back to you as soon as possible.",
+      });
+      
+      form.reset();
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -47,7 +85,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
           >
-            <h1 className="text-5xl md:text-7xl font-display font-bold mb-8">Get in Touch</h1>
+            <h1 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">Get in Touch</h1>
             <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
               Have a project in mind? We'd love to hear from you. Send us a message and let's start a conversation.
             </p>
@@ -59,7 +97,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold mb-1">Email Us</h3>
-                  <p className="text-muted-foreground">hello@aiwebsphere.com</p>
+                  <p className="text-muted-foreground">info@aiwebsphere.com.au</p>
                 </div>
               </div>
               
@@ -69,7 +107,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold mb-1">Call Us</h3>
-                  <p className="text-muted-foreground">+61 400 000 000</p>
+                  <p className="text-muted-foreground">0433 907 511</p>
                 </div>
               </div>
               
@@ -79,7 +117,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold mb-1">Visit Us</h3>
-                  <p className="text-muted-foreground">Sydney, Australia</p>
+                  <p className="text-muted-foreground">Geelong, Australia</p>
                 </div>
               </div>
             </div>
@@ -91,7 +129,7 @@ export default function Contact() {
             className="bg-white/5 p-8 rounded-3xl border border-white/10"
           >
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <div className="space-y-6">
                 <FormField
                   control={form.control}
                   name="name"
@@ -134,10 +172,14 @@ export default function Contact() {
                   )}
                 />
                 
-                <Button type="submit" className="w-full h-12 text-lg bg-primary hover:bg-primary/90 text-white rounded-xl">
-                  Send Message
+                <Button 
+                  onClick={form.handleSubmit(onSubmit)}
+                  className="w-full h-12 text-lg bg-primary hover:bg-primary/90 text-white rounded-xl"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
-              </form>
+              </div>
             </Form>
           </motion.div>
         </div>
@@ -147,3 +189,4 @@ export default function Contact() {
     </div>
   );
 }
+

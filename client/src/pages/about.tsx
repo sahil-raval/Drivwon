@@ -130,13 +130,13 @@ export default function About() {
               {
                 name: "Chandra Bhatt",
                 role: "Director | Strategy, Operations & Industry Integration",
-                image:"chandra.jpeg",
+                image:"/chandra.jpeg",
                 bio: "Over a decade of experience spanning technology, real estate, construction, design, and business leadership. Founder of Canvas Real Estate and Director of Daytodaydeals.com.au, Chandra brings a rare combination of technical insight and real-world industry expertise. His experience includes overseeing large product ecosystems, managing technology infrastructure, and guiding clients through complex decision-making processes. His balanced approach—combining strategy, technology, and human connection—strengthens AIWebSphere's ability to deliver solutions that are innovative, practical, and sustainable.",
               },
               {
                 name: "Sahil Raval",
                 role: "Director | Technology & AI Innovation",
-                image:"sahil.jpeg",
+                image:"/sahil.jpeg",
                 bio: "A technology-driven leader with deep expertise in Artificial Intelligence, software engineering, and digital transformation. Currently pursuing a Master's in Applied Artificial Intelligence with specialization in Blockchain and Software Development. With hands-on experience across AI development, full-stack web technologies, automation, and cloud platforms, Sahil has worked on diverse projects ranging from AI-powered workflow solutions and humanoid robotics research to enterprise-level web platforms. His technical expertise spans Python, JavaScript, React, Node.js, AI/ML frameworks, cloud architecture, and modern development tools. Beyond engineering, Sahil plays key roles in AI strategy, product design, digital branding, and marketing technology.",
               },
               

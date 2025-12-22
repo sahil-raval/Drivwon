@@ -6,10 +6,20 @@ import { useIsMobile } from "@/hooks/use-mobile";
 export default function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    if (isMobile) return;
+    if (isMobile) {
+      setShouldRender(false);
+      return;
+    }
+
+    const handleMouseMoveFirstTime = () => {
+      setShouldRender(true);
+      window.removeEventListener("mousemove", handleMouseMoveFirstTime);
+    };
+    window.addEventListener("mousemove", handleMouseMoveFirstTime);
 
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -30,12 +40,13 @@ export default function CustomCursor() {
     window.addEventListener("mouseover", handleMouseOver);
 
     return () => {
+      window.removeEventListener("mousemove", handleMouseMoveFirstTime);
       window.removeEventListener("mousemove", updateMousePosition);
       window.removeEventListener("mouseover", handleMouseOver);
     };
   }, [isMobile]);
 
-  if (isMobile) return null;
+  if (isMobile || !shouldRender) return null;
 
   return (
     <>

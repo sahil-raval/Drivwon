@@ -10,7 +10,9 @@ export default function CustomCursor() {
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    if (isMobile) {
+    // Completely disable on touch devices
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isMobile || isTouchDevice) {
       setShouldRender(false);
       return;
     }

@@ -125,7 +125,7 @@ export default function Launch() {
                   className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50"
                   
                 >
-                  AI WEB<br />SPHERE
+                  AI WEB<br />
                 </motion.h1>
                 <p className="text-xl md:text-2xl text-white/50 font-light tracking-[0.2em] font-tech uppercase">
                   READY FOR INITIALIZATION

@@ -58,7 +58,7 @@ export default function PrivacyPolicy() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true, margin: "-200px" }}
+              viewport={{ once: true, margin: "0px" }}
             >
               <p className="text-lg text-white/80 font-light leading-relaxed mb-6">
                 At AIWebSphere, we are committed to protecting your privacy and ensuring you have a positive experience on our website and when using our services. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and interact with our services.
@@ -77,7 +77,7 @@ export default function PrivacyPolicy() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true, margin: "-200px" }}
+              viewport={{ once: true, margin: "0px" }}
               className="space-y-8"
             >
               <h2 className="text-5xl md:text-6xl font-display font-bold gradient-text">
@@ -117,7 +117,7 @@ export default function PrivacyPolicy() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true, margin: "-200px" }}
+              viewport={{ once: true, margin: "0px" }}
               className="space-y-8"
             >
               <h2 className="text-5xl md:text-6xl font-display font-bold gradient-text">
@@ -161,7 +161,7 @@ export default function PrivacyPolicy() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true, margin: "-200px" }}
+              viewport={{ once: true, margin: "0px" }}
               className="space-y-8"
             >
               <h2 className="text-5xl md:text-6xl font-display font-bold gradient-text">
@@ -186,7 +186,7 @@ export default function PrivacyPolicy() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true, margin: "-200px" }}
+              viewport={{ once: true, margin: "0px" }}
               className="space-y-8"
             >
               <h2 className="text-5xl md:text-6xl font-display font-bold gradient-text">
@@ -211,7 +211,7 @@ export default function PrivacyPolicy() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true, margin: "-200px" }}
+              viewport={{ once: true, margin: "0px" }}
               className="space-y-8"
             >
               <h2 className="text-5xl md:text-6xl font-display font-bold gradient-text">
@@ -236,7 +236,7 @@ export default function PrivacyPolicy() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true, margin: "-200px" }}
+              viewport={{ once: true, margin: "0px" }}
               className="space-y-8"
             >
               <h2 className="text-5xl md:text-6xl font-display font-bold gradient-text">
@@ -269,7 +269,7 @@ export default function PrivacyPolicy() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true, margin: "-200px" }}
+              viewport={{ once: true, margin: "0px" }}
             >
               <h2 className="text-5xl md:text-6xl font-display font-bold gradient-text mb-8">
                 Policy Updates

@@ -1,8 +1,11 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useScroll } from "framer-motion";
+import chandraImg from "@/assets/team/chandra.jpeg";
+import sahilImg from "@/assets/team/sahil.jpeg";
+
 
 export default function About() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -10,6 +13,13 @@ export default function About() {
     target: containerRef,
     offset: ["start start", "end end"],
   });
+
+  const [imageErrors, setImageErrors] = useState<{ [key: string]: boolean }>({});
+
+  const handleImageError = (memberName: string) => {
+    setImageErrors(prev => ({ ...prev, [memberName]: true }));
+    console.error(`Failed to load image for ${memberName}`);
+  };
 
   return (
     <div
@@ -38,7 +48,7 @@ export default function About() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50  "
+            className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50"
           >
             Technology That <br />
             <span className="text-primary">Empowers</span>
@@ -130,16 +140,15 @@ export default function About() {
               {
                 name: "Chandra Bhatt",
                 role: "Director | Strategy, Operations & Industry Integration",
-                image:"/chandra.jpeg",
+                image: chandraImg,
                 bio: "Over a decade of experience spanning technology, real estate, construction, design, and business leadership. Founder of Canvas Real Estate and Director of Daytodaydeals.com.au, Chandra brings a rare combination of technical insight and real-world industry expertise. His experience includes overseeing large product ecosystems, managing technology infrastructure, and guiding clients through complex decision-making processes. His balanced approach—combining strategy, technology, and human connection—strengthens AIWebSphere's ability to deliver solutions that are innovative, practical, and sustainable.",
               },
               {
                 name: "Sahil Raval",
                 role: "Director | Technology & AI Innovation",
-                image:"/sahil.jpeg",
+                image: sahilImg,
                 bio: "A technology-driven leader with deep expertise in Artificial Intelligence, software engineering, and digital transformation. Currently pursuing a Master's in Applied Artificial Intelligence with specialization in Blockchain and Software Development. With hands-on experience across AI development, full-stack web technologies, automation, and cloud platforms, Sahil has worked on diverse projects ranging from AI-powered workflow solutions and humanoid robotics research to enterprise-level web platforms. His technical expertise spans Python, JavaScript, React, Node.js, AI/ML frameworks, cloud architecture, and modern development tools. Beyond engineering, Sahil plays key roles in AI strategy, product design, digital branding, and marketing technology.",
               },
-              
             ].map((member, i) => (
               <motion.div
                 key={i}
@@ -150,12 +159,27 @@ export default function About() {
               >
                 <div className="grid md:grid-cols-2 gap-16 items-center">
                   <div className={i % 2 === 1 ? "order-2" : "order-1"}>
-                    <div className="relative w-full aspect-square overflow-hidden rounded-3xl border border-white/10">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                      />
+                    <div className="relative w-full aspect-square overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+                      {!imageErrors[member.name] ? (
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                          onError={() => handleImageError(member.name)}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <div className="text-center">
+                            <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                              <span className="text-4xl font-bold text-primary">
+                                {member.name.charAt(0)}
+                              </span>
+                            </div>
+                            <p className="text-white/50 text-sm">Image unavailable</p>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
 

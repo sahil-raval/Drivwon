@@ -150,12 +150,9 @@ export default function About() {
                 bio: "A technology-driven leader with deep expertise in Artificial Intelligence, software engineering, and digital transformation. Currently pursuing a Master's in Applied Artificial Intelligence with specialization in Blockchain and Software Development. With hands-on experience across AI development, full-stack web technologies, automation, and cloud platforms, Sahil has worked on diverse projects ranging from AI-powered workflow solutions and humanoid robotics research to enterprise-level web platforms. His technical expertise spans Python, JavaScript, React, Node.js, AI/ML frameworks, cloud architecture, and modern development tools. Beyond engineering, Sahil plays key roles in AI strategy, product design, digital branding, and marketing technology.",
               },
             ].map((member, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true, margin: "-200px" }}
+                className="opacity-100 transform-none"
               >
                 <div className="grid md:grid-cols-2 gap-16 items-center">
                   <div className="order-1">
@@ -164,7 +161,7 @@ export default function About() {
                         <img
                           src={member.image}
                           alt={member.name}
-                          className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                          className="w-full h-full object-cover grayscale md:hover:grayscale-0 md:grayscale transition-all duration-700"
                           onError={() => handleImageError(member.name)}
                           loading="lazy"
                         />
@@ -184,12 +181,7 @@ export default function About() {
                   </div>
 
                   <div className="order-2">
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ delay: 0.2 }}
-                      viewport={{ once: true }}
-                    >
+                    <div className="opacity-100 transform-none">
                       <h3 className="text-4xl md:text-5xl font-display font-bold mb-3">
                         {member.name}
                       </h3>
@@ -199,10 +191,10 @@ export default function About() {
                       <p className="text-white/70 text-lg font-light leading-relaxed">
                         {member.bio}
                       </p>
-                    </motion.div>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

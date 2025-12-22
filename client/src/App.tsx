@@ -18,10 +18,12 @@ import { Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import Launch from "@/pages/launch";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 function Router() {
   return (
     <PageTransition>
+      <ScrollToTop />
       <Switch>
         <Route path="/" component={Launch} />
         <Route path="/home" component={Home} />

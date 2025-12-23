@@ -17,7 +17,6 @@ import { useAudio } from "@/lib/audio";
 import { Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PrivacyPolicy from "@/pages/privacy-policy";
-import Launch from "@/pages/launch";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 
 function Router() {
@@ -25,8 +24,7 @@ function Router() {
     <PageTransition>
       <ScrollToTop />
       <Switch>
-        <Route path="/" component={Launch} />
-        <Route path="/home" component={Home} />
+        <Route path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/services" component={Services} />
         <Route path="/contact" component={Contact} />

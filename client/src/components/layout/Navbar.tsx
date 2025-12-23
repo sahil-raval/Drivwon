@@ -7,7 +7,7 @@ import { useAudio } from "@/lib/audio";
 import logo from "@/assets/AIWEBSPHERE.png";
 
 const links = [
-  { href: "/home", label: "Home" },
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/quotation", label: "Get Quote" },
@@ -36,7 +36,7 @@ export default function Navbar() {
       )}
     >
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/home">
+        <Link href="/">
           <a 
             className="text-2xl font-display font-bold tracking-tighter text-white hover:text-primary transition-colors cursor-pointer"
             onMouseEnter={playHover}

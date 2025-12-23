@@ -65,57 +65,83 @@ export default function About() {
       </motion.section>
 
       {/* Our Vision Section */}
-      <motion.section className="relative py-32 md:py-48 px-6 md:px-12 border-t border-white/10">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true, margin: "-200px" }}
-          >
-            <p className="text-sm font-mono text-white/50 uppercase tracking-widest mb-6">
-              OUR VISION
-            </p>
-            <h2 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-8">
-              Technology should empower people, simplify <span className="text-primary">complexity</span>, and create measurable value.
-            </h2>
-            <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed">
-              By combining AI innovation with industry insight, we aim to help businesses evolve, adapt, and lead in a rapidly changing digital world. We believe advanced technology should be practical, secure, and human-centric.
-            </p>
-          </motion.div>
-        </div>
-      </motion.section>
+{/* Our Vision Section */}
+<motion.section
+  className="relative py-32 md:py-48 px-6 md:px-12 border-t border-white/10"
+  initial={{ opacity: 1 }} // force visible on mobile
+  animate={{ opacity: 1 }}
+>
+  <div className="max-w-5xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true, amount: 0.2 }} // mobile-safe trigger
+    >
+      <p className="text-sm font-mono text-white/50 uppercase tracking-widest mb-6">
+        OUR VISION
+      </p>
+
+      <h2 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-8">
+        Technology should empower people, simplify{" "}
+        <span className="text-primary">complexity</span>, and create measurable value.
+      </h2>
+
+      <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed">
+        By combining AI innovation with industry insight, we aim to help businesses
+        evolve, adapt, and lead in a rapidly changing digital world. We believe
+        advanced technology should be practical, secure, and human-centric.
+      </p>
+    </motion.div>
+  </div>
+</motion.section>
 
       {/* About AIWebSphere Section */}
-      <motion.section className="relative py-32 md:py-48 px-6 md:px-12 border-t border-white/10">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true, margin: "-200px" }}
-            className="space-y-8"
-          >
-            <div>
-              <p className="text-sm font-mono text-white/50 uppercase tracking-widest mb-6">
-                ABOUT AIWEBSPHERE
-              </p>
-              <h2 className="text-5xl md:text-6xl font-display font-bold leading-tight mb-8">
-                Next-Generation <span className="text-primary">Technology</span> Solutions
-              </h2>
-            </div>
+      {/* About AIWebSphere Section */}
+<motion.section
+  className="relative py-32 md:py-48 px-6 md:px-12 border-t border-white/10"
+  initial={{ opacity: 1 }} // ensure visible on mobile
+  animate={{ opacity: 1 }}
+>
+  <div className="max-w-5xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true, amount: 0.2 }} // safe on mobile
+      className="space-y-8"
+    >
+      <div>
+        <p className="text-sm font-mono text-white/50 uppercase tracking-widest mb-6">
+          ABOUT AIWEBSPHERE
+        </p>
 
-            <div className="space-y-6">
-              <p className="text-lg text-white/80 font-light leading-relaxed">
-                AIWebSphere is a next-generation technology company focused on building intelligent, scalable, and impact-driven digital solutions. We specialize in Artificial Intelligence, automation, web platforms, and smart business systems that help organizations streamline operations, enhance decision-making, and unlock new growth opportunities.
-              </p>
-              <p className="text-lg text-white/80 font-light leading-relaxed">
-                Our philosophy is simple: advanced technology should be practical, secure, and <span className="text-primary">human-centric</span>. By combining cutting-edge AI research with real-world industry experience, AIWebSphere delivers solutions that are innovative yet grounded, powerful yet easy to adopt.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </motion.section>
+        <h2 className="text-5xl md:text-6xl font-display font-bold leading-tight mb-8">
+          Next-Generation <span className="text-primary">Technology</span> Solutions
+        </h2>
+      </div>
+
+      <div className="space-y-6">
+        <p className="text-lg text-white/80 font-light leading-relaxed">
+          AIWebSphere is a next-generation technology company focused on building
+          intelligent, scalable, and impact-driven digital solutions. We specialize
+          in Artificial Intelligence, automation, web platforms, and smart business
+          systems that help organizations streamline operations, enhance
+          decision-making, and unlock new growth opportunities.
+        </p>
+
+        <p className="text-lg text-white/80 font-light leading-relaxed">
+          Our philosophy is simple: advanced technology should be practical, secure,
+          and <span className="text-primary">human-centric</span>. By combining
+          cutting-edge AI research with real-world industry experience, AIWebSphere
+          delivers solutions that are innovative yet grounded, powerful yet easy to
+          adopt.
+        </p>
+      </div>
+    </motion.div>
+  </div>
+</motion.section>
+
 
       {/* Team Members Section */}
 {/* Team Members Section */}
@@ -171,7 +197,7 @@ export default function About() {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover grayscale md:hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover md:grayscale md:hover:grayscale-0 transition-all duration-700"
                   loading="lazy"
                 />
               </div>

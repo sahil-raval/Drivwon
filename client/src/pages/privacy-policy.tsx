@@ -249,10 +249,10 @@ export default function PrivacyPolicy() {
 
               <div className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-4">
                 <p className="text-white font-light">
-                  <span className="text-primary font-semibold">Email:</span> hello@aiwebsphere.com
+                  <span className="text-primary font-semibold">Email:</span> info@aiwebsphere.com.au
                 </p>
                 <p className="text-white font-light">
-                  <span className="text-primary font-semibold">Location:</span> Sydney, Australia
+                  <span className="text-primary font-semibold">Location:</span> Geelong, VIC, Australia
                 </p>
                 <p className="text-white font-light">
                   <span className="text-primary font-semibold">Response Time:</span> We aim to respond to all privacy requests within 30 days.

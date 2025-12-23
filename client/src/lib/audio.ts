@@ -9,19 +9,15 @@ export function useAudio() {
   const clickSoundRef = useRef<Howl | null>(null);
   const hoverSoundRef = useRef<Howl | null>(null);
 
-  // User interaction unlocks audio
   useEffect(() => {
-    const handleFirstInteraction = async () => {
+    const unlockAudio = async () => {
       if (hasInteracted) return;
-
       setHasInteracted(true);
 
-      // Unlock audio context
-      if (Howler.ctx && Howler.ctx.state !== "running") {
+      if (Howler.ctx?.state !== "running") {
         await Howler.ctx.resume();
       }
 
-      // Create sounds ONLY after interaction
       clickSoundRef.current = new Howl({
         src: ["https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"],
         volume: 0.4,
@@ -30,33 +26,28 @@ export function useAudio() {
 
       hoverSoundRef.current = new Howl({
         src: ["https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"],
-        volume: 0.5,
+        volume: 0.4,
       });
 
       bgMusicRef.current = new Howl({
-        src: ["/background.mp3"],
+        src: ["/background.mp3"], // MUST be in /public
         loop: true,
         html5: true,
-        volume: 0,
-        preload: true,
+        volume: 0.2,
       });
 
-      if (!isMuted && bgMusicRef.current) {
-        const id = bgMusicRef.current.play();
-        bgMusicRef.current.fade(0, 0.2, 3000, id);
-      }
+      // ▶️ START MUSIC IMMEDIATELY AFTER FIRST INTERACTION
+      bgMusicRef.current.play();
     };
 
-    window.addEventListener("click", handleFirstInteraction);
-    window.addEventListener("touchstart", handleFirstInteraction);
-    window.addEventListener("keydown", handleFirstInteraction);
+    window.addEventListener("pointerdown", unlockAudio, { once: true });
+    window.addEventListener("keydown", unlockAudio, { once: true });
 
     return () => {
-      window.removeEventListener("click", handleFirstInteraction);
-      window.removeEventListener("touchstart", handleFirstInteraction);
-      window.removeEventListener("keydown", handleFirstInteraction);
+      window.removeEventListener("pointerdown", unlockAudio);
+      window.removeEventListener("keydown", unlockAudio);
     };
-  }, [hasInteracted, isMuted]);
+  }, [hasInteracted]);
 
   const playHover = () => {
     if (!isMuted) hoverSoundRef.current?.play();
@@ -71,13 +62,11 @@ export function useAudio() {
 
     if (isMuted) {
       setIsMuted(false);
-      Howler.mute(false);
-      const id = bgMusicRef.current.play();
-      bgMusicRef.current.fade(0, 0.2, 1000, id);
+      bgMusicRef.current.volume(0.2);
+      bgMusicRef.current.play();
     } else {
       setIsMuted(true);
-      bgMusicRef.current.fade(0.2, 0, 1000);
-      setTimeout(() => Howler.mute(true), 1000);
+      bgMusicRef.current.fade(0.2, 0, 500);
     }
   };
 

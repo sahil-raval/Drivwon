@@ -8,7 +8,7 @@ const hoverSound = new Howl({
     "data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA=="
   ],
   volume: 0.1,
-  preload: false,
+  preload: true,
   onloaderror: () => console.log("Hover sound failed to load")
 });
 
@@ -20,19 +20,16 @@ const clickSound = new Howl({
   ],
   volume: 0.4,
   rate: 1.5,
-  preload: false,
+  preload: true,
   onloaderror: () => console.log("Click sound failed to load")
 });
 
 // Background ambience: Using a more reliable source
 const bgMusic = new Howl({
-  src: [
-    "https://assets.mixkit.co/active_storage/sfx/2732/2732-preview.mp3",
-    "https://cdn.pixabay.com/download/audio/2022/10/25/audio_9486c31043.mp3?filename=space-drone-27835.mp3"
-  ],
+  src: ["/background.mp3"],
   loop: true,
-  volume: 0.15,
-  autoplay: false,
+  volume: 0.5,
+  autoplay: true,
   html5: true,
   preload: true,
   onloaderror: () => console.log("Background music failed to load"),

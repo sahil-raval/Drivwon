@@ -1,47 +1,62 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Howl, Howler } from "howler";
 
 export function useAudio() {
   const [isMuted, setIsMuted] = useState(false);
-  const [started, setStarted] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   const bgMusicRef = useRef<Howl | null>(null);
   const clickSoundRef = useRef<Howl | null>(null);
   const hoverSoundRef = useRef<Howl | null>(null);
 
-  // 🚨 MUST be triggered by a real user interaction
-  const startAudio = () => {
-    if (started) return;
-    setStarted(true);
+  // User interaction unlocks audio
+  useEffect(() => {
+    const handleFirstInteraction = async () => {
+      if (hasInteracted) return;
 
-    if (Howler.ctx?.state !== "running") {
-      Howler.ctx.resume();
-    }
+      setHasInteracted(true);
 
-    clickSoundRef.current = new Howl({
-      src: ["https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"],
-      volume: 0.4,
-      rate: 1.5,
-    });
+      // Unlock audio context
+      if (Howler.ctx && Howler.ctx.state !== "running") {
+        await Howler.ctx.resume();
+      }
 
-    hoverSoundRef.current = new Howl({
-      src: ["https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"],
-      volume: 0.3,
-    });
+      // Create sounds ONLY after interaction
+      clickSoundRef.current = new Howl({
+        src: ["https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"],
+        volume: 0.4,
+        rate: 1.5,
+      });
 
-    bgMusicRef.current = new Howl({
-      src: ["/background.mp3"], // ✅ CORRECT FOR client/public
-      loop: true,
-      html5: true,
-      volume: 0,
-      preload: true,
-    });
+      hoverSoundRef.current = new Howl({
+        src: ["https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"],
+        volume: 0.5,
+      });
 
-    if (!isMuted && bgMusicRef.current) {
-      const id = bgMusicRef.current.play();
-      bgMusicRef.current.fade(0, 0.2, 3000, id);
-    }
-  };
+      bgMusicRef.current = new Howl({
+        src: ["/background.mp3"],
+        loop: true,
+        html5: true,
+        volume: 0,
+        preload: true,
+      });
+
+      if (!isMuted && bgMusicRef.current) {
+        const id = bgMusicRef.current.play();
+        bgMusicRef.current.fade(0, 0.2, 3000, id);
+      }
+    };
+
+    window.addEventListener("click", handleFirstInteraction);
+    window.addEventListener("touchstart", handleFirstInteraction);
+    window.addEventListener("keydown", handleFirstInteraction);
+
+    return () => {
+      window.removeEventListener("click", handleFirstInteraction);
+      window.removeEventListener("touchstart", handleFirstInteraction);
+      window.removeEventListener("keydown", handleFirstInteraction);
+    };
+  }, [hasInteracted, isMuted]);
 
   const playHover = () => {
     if (!isMuted) hoverSoundRef.current?.play();
@@ -66,11 +81,5 @@ export function useAudio() {
     }
   };
 
-  return {
-    startAudio,
-    playHover,
-    playClick,
-    toggleMute,
-    isMuted,
-  };
+  return { playHover, playClick, toggleMute, isMuted };
 }

@@ -26,7 +26,10 @@ const clickSound = new Howl({
 
 // Background ambience: Using a more reliable source
 const bgMusic = new Howl({
-  src: ["/background.mp3"],
+  src: [
+    "https://assets.mixkit.co/active_storage/sfx/2732/2732-preview.mp3",
+    "https://cdn.pixabay.com/download/audio/2022/10/25/audio_9486c31043.mp3?filename=space-drone-27835.mp3"
+  ],
   loop: true,
   volume: 0.15,
   autoplay: false,

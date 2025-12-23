@@ -118,87 +118,84 @@ export default function About() {
       </motion.section>
 
       {/* Team Members Section */}
-      <motion.section className="relative py-32 md:py-48 px-6 md:px-12 border-t border-white/10">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-20"
-          >
-            <p className="text-sm font-mono text-white/50 uppercase tracking-widest mb-4">
-              LEADERSHIP
-            </p>
-            <h2 className="text-5xl md:text-7xl font-display font-bold">
-              Bridging <span className="text-primary">Innovation</span> and Execution
-            </h2>
-          </motion.div>
+{/* Team Members Section */}
+<motion.section
+  className="relative py-32 md:py-48 px-6 md:px-12 border-t border-white/10"
+  initial={{ opacity: 1 }} // ensure visible on mobile
+  animate={{ opacity: 1 }}
+>
+  <div className="max-w-6xl mx-auto">
+    {/* Section Header */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true, amount: 0.2 }} // safer threshold
+      className="mb-20"
+    >
+      <p className="text-sm font-mono text-white/50 uppercase tracking-widest mb-4">
+        LEADERSHIP
+      </p>
+      <h2 className="text-5xl md:text-7xl font-display font-bold">
+        Bridging <span className="text-primary">Innovation</span> and Execution
+      </h2>
+    </motion.div>
 
-          <div className="space-y-32">
-            {[
-              {
-                name: "Chandra Bhatt",
-                role: "Director | Strategy, Operations & Industry Integration",
-                image: chandraImg,
-                bio: "Over a decade of experience spanning technology, real estate, construction, design, and business leadership. Founder of Canvas Real Estate and Director of Daytodaydeals.com.au, Chandra brings a rare combination of technical insight and real-world industry expertise. His experience includes overseeing large product ecosystems, managing technology infrastructure, and guiding clients through complex decision-making processes. His balanced approach—combining strategy, technology, and human connection—strengthens AIWebSphere's ability to deliver solutions that are innovative, practical, and sustainable.",
-              },
-              {
-                name: "Sahil Raval",
-                role: "Director | Technology & AI Innovation",
-                image: sahilImg,
-                bio: "A technology-driven leader with deep expertise in Artificial Intelligence, software engineering, and digital transformation. Currently pursuing a Master's in Applied Artificial Intelligence with specialization in Blockchain and Software Development. With hands-on experience across AI development, full-stack web technologies, automation, and cloud platforms, Sahil has worked on diverse projects ranging from AI-powered workflow solutions and humanoid robotics research to enterprise-level web platforms. His technical expertise spans Python, JavaScript, React, Node.js, AI/ML frameworks, cloud architecture, and modern development tools. Beyond engineering, Sahil plays key roles in AI strategy, product design, digital branding, and marketing technology.",
-              },
-            ].map((member, i) => (
-              <div
-                key={i}
-                className="opacity-100 transform-none"
-              >
-                <div className="grid md:grid-cols-2 gap-16 items-center">
-                  <div className="order-1">
-                    <div className="relative w-full aspect-square overflow-hidden rounded-3xl border border-white/10 bg-white/5">
-                      {!imageErrors[member.name] ? (
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-full h-full object-cover grayscale md:hover:grayscale-0 md:grayscale transition-all duration-700"
-                          onError={() => handleImageError(member.name)}
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <div className="text-center">
-                            <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                              <span className="text-4xl font-bold text-primary">
-                                {member.name.charAt(0)}
-                              </span>
-                            </div>
-                            <p className="text-white/50 text-sm">Image unavailable</p>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="order-2">
-                    <div className="opacity-100 transform-none">
-                      <h3 className="text-4xl md:text-5xl font-display font-bold mb-3">
-                        {member.name}
-                      </h3>
-                      <p className="text-primary font-semibold text-lg mb-8">
-                        {member.role}
-                      </p>
-                      <p className="text-white/70 text-lg font-light leading-relaxed">
-                        {member.bio}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+    {/* Team Members */}
+    <div className="space-y-32">
+      {[
+        {
+          name: "Chandra Bhatt",
+          role: "Director | Strategy, Operations & Industry Integration",
+          image: chandraImg,
+          bio: "Over a decade of experience spanning technology, real estate, construction, design, and business leadership. Founder of Canvas Real Estate and Director of Daytodaydeals.com.au, Chandra brings a rare combination of technical insight and real-world industry expertise. His experience includes overseeing large product ecosystems, managing technology infrastructure, and guiding clients through complex decision-making processes. His balanced approach—combining strategy, technology, and human connection—strengthens AIWebSphere's ability to deliver solutions that are innovative, practical, and sustainable.",
+        },
+        {
+          name: "Sahil Raval",
+          role: "Director | Technology & AI Innovation",
+          image: sahilImg,
+          bio: "A technology-driven leader with deep expertise in Artificial Intelligence, software engineering, and digital transformation. Currently pursuing a Master's in Applied Artificial Intelligence with specialization in Blockchain and Software Development. With hands-on experience across AI development, full-stack web technologies, automation, and cloud platforms, Sahil has worked on diverse projects ranging from AI-powered workflow solutions and humanoid robotics research to enterprise-level web platforms. His technical expertise spans Python, JavaScript, React, Node.js, AI/ML frameworks, cloud architecture, and modern development tools. Beyond engineering, Sahil plays key roles in AI strategy, product design, digital branding, and marketing technology.",
+        },
+      ].map((member, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: i * 0.1 }}
+          viewport={{ once: true, amount: 0.15 }} // MOBILE SAFE
+        >
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Image */}
+            <div>
+              <div className="relative w-full aspect-square overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover grayscale md:hover:grayscale-0 transition-all duration-700"
+                  loading="lazy"
+                />
               </div>
-            ))}
+            </div>
+
+            {/* Text */}
+            <div>
+              <h3 className="text-4xl md:text-5xl font-display font-bold mb-3">
+                {member.name}
+              </h3>
+              <p className="text-primary font-semibold text-lg mb-8">
+                {member.role}
+              </p>
+              <p className="text-white/70 text-lg font-light leading-relaxed">
+                {member.bio}
+              </p>
+            </div>
           </div>
-        </div>
-      </motion.section>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</motion.section>
+
 
       {/* Our Approach Section */}
       <motion.section className="relative py-32 md:py-48 px-6 md:px-12 border-t border-white/10">

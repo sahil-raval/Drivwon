@@ -3,12 +3,18 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { useAudio } from "@/lib/audio";
 import { ExternalLink, Github } from "lucide-react";
+import psm from "@/assets/projects/psmfinance.png";
+import aprational from "@/assets/projects/aprational.png";
+import msm from "@/assets/projects/msm.png";
+import scrub from "@/assets/projects/Scrub.png";
+import varni from "@/assets/projects/Varni.png";
+import daytoday from "@/assets/projects/Daytoday.png";
 
 const projects = [
   {
     title: "Day To Day Deals",
     description: "A high-performance neural network visualization dashboard built with React and Three.js.",
-    image: "Daytoday.png",
+    image: psm,
     tags: ["React", "Three.js", "Tailwind"],
     link: "https://daytodaydeals.com.au",
     github: "#"
@@ -16,7 +22,7 @@ const projects = [
   {
     title: "Varni Diamonds",
     description: "Next-generation e-commerce platform with real-time stock tracking and AI recommendations.",
-    image: "Varni.png",
+    image: varni,
     tags: ["Next.js", "Node.js", "Stripe"],
     link: "https://www.varnidiamonds.com.au",
     github: "#"
@@ -24,7 +30,7 @@ const projects = [
   {
     title: "Scrub N Clean",
     description: "Decentralized identity management system with biometric authentication and blockchain security.",
-    image: "Scrub.png",
+    image: scrub,
     tags: ["Web3", "Solidity", "TypeScript"],
     link: "https://www.scrubnclean.com.au",
     github: "#"
@@ -32,7 +38,7 @@ const projects = [
   {
     title: "MSM Logistics",
     description: "Decentralized identity management system with biometric authentication and blockchain security.",
-    image: "msm.png",
+    image: msm,
     tags: ["Web3", "Solidity", "TypeScript"],
     link: "https://www.msmtranslink.com",
     github: "#"
@@ -40,7 +46,7 @@ const projects = [
   {
     title: "Aprational Energy",
     description: "Decentralized identity management system with biometric authentication and blockchain security.",
-    image: "aprational.png",
+    image: aprational,
     tags: ["Web3", "Solidity", "TypeScript"],
     link: "#",
     github: "#"
@@ -48,7 +54,7 @@ const projects = [
   {
     title: "PSM Finance",
     description: "Decentralized identity management system with biometric authentication and blockchain security.",
-    image: "psmfinance.png",
+    image: psm,
     tags: ["Web3", "Solidity", "TypeScript"],
     link: "#",
     github: "#"

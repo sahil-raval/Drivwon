@@ -221,7 +221,7 @@ export default function Quotation() {
                   className="w-full h-14 text-lg bg-primary hover:bg-primary/90 text-white rounded-xl font-bold"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Sending..." : "Submit Quote Request"}
+                  {isSubmitting ? "Sending..." : "Submit"}
                 </Button>
               </div>
             </Form>

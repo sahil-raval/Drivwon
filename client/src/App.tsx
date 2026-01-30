@@ -18,6 +18,7 @@ import { Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import Projects from "@/pages/projects";
 
 function Router() {
   return (
@@ -30,7 +31,7 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/quotation" component={Quotation} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
-      
+        <Route path="/projects" component={Projects} />
  
         <Route component={NotFound} />
       </Switch>

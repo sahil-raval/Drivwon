@@ -14,7 +14,7 @@ const projects = [
   {
     title: "Day To Day Deals",
     description: "A high-performance neural network visualization dashboard built with React and Three.js.",
-    image: psm,
+    image: daytoday,
     tags: ["React", "Three.js", "Tailwind"],
     link: "https://daytodaydeals.com.au",
     github: "#"

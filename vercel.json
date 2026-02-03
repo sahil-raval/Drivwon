@@ -9,6 +9,14 @@
   ],
   "routes": [
     {
+      "src": "/favicon.png",
+      "dest": "/favicon.png"
+    },
+    {
+      "src": "/AIWEBSPHERE.png",
+      "dest": "/AIWEBSPHERE.png"
+    },
+    {
       "src": "/assets/(.*)",
       "dest": "/assets/$1"
     },

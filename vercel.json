@@ -4,13 +4,17 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+      "config": { "distDir": "dist/public" }
     }
   ],
   "routes": [
-    { "src": "/favicon.png", "dest": "/favicon.png" },
-    { "src": "/AIWEBSPHERE.png", "dest": "/AIWEBSPHERE.png" },
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/(.*)", "dest": "/index.html" }
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }

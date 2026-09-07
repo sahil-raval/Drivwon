@@ -61,10 +61,10 @@ export default function PrivacyPolicy() {
               viewport={{ once: true, margin: "0px" }}
             >
               <p className="text-lg text-white/80 font-light leading-relaxed mb-6">
-                At AIWebSphere, we are committed to protecting your privacy and ensuring you have a positive experience on our website and when using our services. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and interact with our services.
+                At Drivwon, we are committed to protecting your privacy and ensuring you have a positive experience on our website and when using our services. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and interact with our services.
               </p>
               <p className="text-lg text-white/80 font-light leading-relaxed">
-                Please read this Privacy Policy carefully. By accessing and using AIWebSphere's website and services, you acknowledge that you have read, understood, and agree to be bound by all the provisions of this Privacy Policy.
+                Please read this Privacy Policy carefully. By accessing and using Drivwon's website and services, you acknowledge that you have read, understood, and agree to be bound by all the provisions of this Privacy Policy.
               </p>
             </motion.div>
           </div>
@@ -194,7 +194,7 @@ export default function PrivacyPolicy() {
               </h2>
 
               <p className="text-white/70 text-lg font-light leading-relaxed">
-                Our website may contain links to third-party websites and services that are not operated by AIWebSphere. This Privacy Policy does not apply to third-party websites, and we are not responsible for their privacy practices. We encourage you to review the privacy policies of any third-party services before providing your information.
+                Our website may contain links to third-party websites and services that are not operated by Drivwon. This Privacy Policy does not apply to third-party websites, and we are not responsible for their privacy practices. We encourage you to review the privacy policies of any third-party services before providing your information.
               </p>
 
               <p className="text-white/70 text-lg font-light leading-relaxed">
@@ -223,7 +223,7 @@ export default function PrivacyPolicy() {
               </p>
 
               <p className="text-white/70 text-lg font-light leading-relaxed">
-                To exercise any of these rights, please contact us at hello@aiwebsphere.com. We will respond to your request within 30 days in accordance with applicable laws.
+                To exercise any of these rights, please contact us at hello@Drivwon.com. We will respond to your request within 30 days in accordance with applicable laws.
               </p>
             </motion.div>
           </div>
@@ -249,7 +249,7 @@ export default function PrivacyPolicy() {
 
               <div className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-4">
                 <p className="text-white font-light">
-                  <span className="text-primary font-semibold">Email:</span> info@aiwebsphere.com.au
+                  <span className="text-primary font-semibold">Email:</span> info@drivwon.com
                 </p>
                 <p className="text-white font-light">
                   <span className="text-primary font-semibold">Location:</span> Geelong, VIC, Australia

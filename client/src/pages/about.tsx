@@ -42,7 +42,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="text-sm md:text-base font-mono text-white/50 mb-6 tracking-widest uppercase"
           >
-            (about aiwebsphere.)
+            (about Drivwon.)
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, scale: 0.95 }}
@@ -96,8 +96,8 @@ export default function About() {
   </div>
 </motion.section>
 
-      {/* About AIWebSphere Section */}
-      {/* About AIWebSphere Section */}
+      {/* About Drivwon Section */}
+      {/* About Drivwon Section */}
 <motion.section
   className="relative py-32 md:py-48 px-6 md:px-12 border-t border-white/10"
   initial={{ opacity: 1 }} // ensure visible on mobile
@@ -113,7 +113,7 @@ export default function About() {
     >
       <div>
         <p className="text-sm font-mono text-white/50 uppercase tracking-widest mb-6">
-          ABOUT AIWEBSPHERE
+          ABOUT Drivwon
         </p>
 
         <h2 className="text-5xl md:text-6xl font-display font-bold leading-tight mb-8">
@@ -123,7 +123,7 @@ export default function About() {
 
       <div className="space-y-6">
         <p className="text-lg text-white/80 font-light leading-relaxed">
-          AIWebSphere is a next-generation technology company focused on building
+          Drivwon is a next-generation technology company focused on building
           intelligent, scalable, and impact-driven digital solutions. We specialize
           in Artificial Intelligence, automation, web platforms, and smart business
           systems that help organizations streamline operations, enhance
@@ -133,7 +133,7 @@ export default function About() {
         <p className="text-lg text-white/80 font-light leading-relaxed">
           Our philosophy is simple: advanced technology should be practical, secure,
           and <span className="text-primary">human-centric</span>. By combining
-          cutting-edge AI research with real-world industry experience, AIWebSphere
+          cutting-edge AI research with real-world industry experience, Drivwon
           delivers solutions that are innovative yet grounded, powerful yet easy to
           adopt.
         </p>
@@ -143,84 +143,7 @@ export default function About() {
 </motion.section>
 
 
-      {/* Team Members Section */}
-{/* Team Members Section */}
-<motion.section
-  className="relative py-32 md:py-48 px-6 md:px-12 border-t border-white/10"
-  initial={{ opacity: 1 }} // ensure visible on mobile
-  animate={{ opacity: 1 }}
->
-  <div className="max-w-6xl mx-auto">
-    {/* Section Header */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true, amount: 0.2 }} // safer threshold
-      className="mb-20"
-    >
-      <p className="text-sm font-mono text-white/50 uppercase tracking-widest mb-4">
-        LEADERSHIP
-      </p>
-      <h2 className="text-5xl md:text-7xl font-display font-bold">
-        Bridging <span className="text-primary">Innovation</span> and Execution
-      </h2>
-    </motion.div>
 
-    {/* Team Members */}
-    <div className="space-y-32">
-      {[
-        {
-          name: "Chandra Bhatt",
-          role: "Director | Strategy, Operations & Industry Integration",
-          image: chandraImg,
-          bio: "Chandrakant (Chandra) Bhatt brings over a decade of experience spanning technology, real estate, construction, design, and business leadership. With a background in web design, IT systems, and digital platforms, Chandra offers a rare combination of technical insight and real-world industry expertise. As the Founder of Canvas Real Estate and Director of Daytodaydeals.com.au, Chandra has successfully led businesses across property, e-commerce, and digital operations. His experience includes overseeing large product ecosystems, managing technology infrastructure, and guiding clients through complex decision-making processes with clarity and confidence. Chandra’s strong understanding of design functionality, system usability, and client-centric solutions plays a vital role at AIWebSphere—ensuring that advanced technology is always aligned with real business needs. Alongside his professional achievements, he is actively involved with BAPS Swaminarayan Sanstha, contributing to cultural and community initiatives. His balanced approach—combining strategy, technology, and human connection—strengthens AIWebSphere’s ability to deliver solutions that are not only innovative, but practical and sustainable.",
-        },
-        {
-          name: "Sahil Raval",
-          role: "Director | Technology & AI Innovation",
-          image: sahilImg,
-          bio: " Sahil Raval is a technology-driven leader with a strong foundation in Artificial Intelligence, software engineering, and digital transformation. Currently pursuing a Master’s in Applied Artificial Intelligence (Professional) with a specialization in Blockchain and Software Development, Sahil brings a research-oriented yet highly practical mindset to AIWebSphere. With hands-on experience across AI development, full-stack web technologies, automation, and cloud platforms, Sahil has worked on diverse projects ranging from AI-powered workflow solutions and humanoid robotics research to enterprise-level web platforms and digital systems. His technical expertise spans Python, JavaScript, React, Node.js, AI/ML frameworks, cloud architecture, and modern development tools. Beyond engineering, Sahil has played key roles in AI strategy, product design, digital branding, and marketing technology, helping businesses integrate intelligent systems that enhance efficiency and user experience. His ability to blend innovation with execution makes him a driving force behind AIWebSphere’s mission to deliver smart, scalable, and impactful AI solutions.",
-        },
-      ].map((member, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: i * 0.1 }}
-          viewport={{ once: true, amount: 0.15 }} // MOBILE SAFE
-        >
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* Image */}
-            <div>
-              <div className="relative w-full aspect-square overflow-hidden rounded-3xl border border-white/10 bg-white/5">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover md:grayscale md:hover:grayscale-0 transition-all duration-700"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            {/* Text */}
-            <div>
-              <h3 className="text-4xl md:text-5xl font-display font-bold mb-3">
-                {member.name}
-              </h3>
-              <p className="text-primary font-semibold text-lg mb-8">
-                {member.role}
-              </p>
-              <p className="text-white/70 text-lg font-light leading-relaxed">
-                {member.bio}
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</motion.section>
 
 
       {/* Our Approach Section */}

@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useAudio } from "@/lib/audio";
-import logo from "@/assets/AIWEBSPHERE.png";
+import logo from "@/assets/logo.png";
 
 const links = [
   { href: "/", label: "Home" },
@@ -37,16 +37,18 @@ export default function Navbar() {
       )}
     >
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/">
-          <a 
-            className="text-2xl font-display font-bold tracking-tighter text-white hover:text-primary transition-colors cursor-pointer"
-            onMouseEnter={playHover}
-            onClick={playClick}
-          >
-            <img src={logo} alt="AI Web Sphere Logo" className="inline-block w-8 h-8 mr-2 -mt-1" />
-            AI WEB <span className="text-primary">SPHERE</span>
-          </a>
-        </Link>
+        <Link
+  href="/"
+  className="flex items-center text-2xl font-display font-bold tracking-tighter text-white hover:text-primary transition-colors cursor-pointer"
+  onMouseEnter={playHover}
+  onClick={playClick}
+>
+<img
+  src={logo}
+  alt="Drivwon Logo"
+  className="inline-block h-8 w-auto mr-2 flex-shrink-0"
+/>
+</Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">

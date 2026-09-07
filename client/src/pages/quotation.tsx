@@ -55,7 +55,7 @@ export default function Quotation() {
       service: values.service,
       budget: values.budget,
       message: values.details,
-      to_email: 'info@aiwebsphere.com.au', // Your email where quotes will be sent
+      to_email: 'info@drivwon.com', // Your email where quotes will be sent
     };
 
     try {

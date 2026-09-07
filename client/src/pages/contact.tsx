@@ -46,7 +46,7 @@ export default function Contact() {
       from_name: values.name,
       from_email: values.email,
       message: values.message,
-      to_email: 'info@aiwebsphere.com.au', 
+      to_email: 'info@drivwon.com', 
     };
 
     try {
@@ -97,7 +97,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold mb-1">Email Us</h3>
-                  <p className="text-muted-foreground">info@aiwebsphere.com.au</p>
+                  <p className="text-muted-foreground">info@drivwon.com</p>
                 </div>
               </div>
               
@@ -107,7 +107,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold mb-1">Call Us</h3>
-                  <p className="text-muted-foreground">0433 907 511</p>
+                  <p className="text-muted-foreground">0451 658 537</p>
                 </div>
               </div>
               

@@ -2,90 +2,103 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import {
-  Brain,
-  MapPin,
-  Workflow,
   Code2,
+  Bot,
+  Network,
   BarChart3,
-  Users,
-  HeadphonesIcon,
+  ShoppingCart,
   Globe,
   Smartphone,
-  Blocks,
-  TrendingUp,
-  Trash2,
-  Zap,
+  Sparkles,
+  Palette,
+  Search,
+  Megaphone,
+  Rocket,
+  Users,
   ShieldCheck,
-  Car,
-  Plane,
-  UtensilsCrossed,
-  Cpu,
-  FlaskConical,
-  Factory,
+  Layers,
 } from "lucide-react";
 
 // ── Stats ──────────────────────────────────────────────────────────────────────
 const stats = [
-  { value: "25–50%", label: "Efficiency Gains", sub: "Measurable improvements within 3 months" },
-  { value: "30%", label: "Waste Reduction", sub: "Average reduction in material & resource waste" },
-  { value: "40%", label: "Faster Processing", sub: "Reduction in processing time through optimised workflows" },
-  { value: "~0", label: "Error Elimination", sub: "Significant reduction in costly operational errors" },
+  { value: "11", label: "Service Lines", sub: "End-to-end coverage from strategy to launch" },
+  { value: "50+", label: "Projects Delivered", sub: "Across web, mobile, and AI-driven products" },
+  { value: "100%", label: "In-House Build", sub: "No outsourcing — one team, start to finish" },
+  { value: "24/7", label: "Support & Monitoring", sub: "Ongoing care after every launch" },
 ];
 
-// ── Core Services ──────────────────────────────────────────────────────────────
+// ── Core Services (all 11 service lines) ────────────────────────────────────────
 const services = [
   {
-    icon: <Brain className="w-7 h-7" />,
-    title: "AI-Powered Analysis",
-    description:
-      "Our AI analyses your current processes to identify bottlenecks and optimisation opportunities with pinpoint precision.",
-  },
-  {
-    icon: <MapPin className="w-7 h-7" />,
-    title: "On-Site Assessments",
-    description:
-      "We visit your facilities to understand your unique operational challenges and requirements first-hand.",
-  },
-  {
-    icon: <Workflow className="w-7 h-7" />,
-    title: "Custom Workflow Design",
-    description:
-      "Tailored workflow solutions designed specifically for your industry and operational needs — no cookie-cutter templates.",
-  },
-  {
     icon: <Code2 className="w-7 h-7" />,
-    title: "Custom AI Solutions",
+    title: "Custom Software & SaaS Development",
     description:
-      "Full-stack AI development from web applications to mobile apps and Web3 platforms — we build it all.",
+      "Bespoke software products built around your workflow, not the other way around — from MVP to scalable SaaS platforms.",
+  },
+  {
+    icon: <Bot className="w-7 h-7" />,
+    title: "AI Agents & Automation",
+    description:
+      "Custom AI agents and workflow automation that handle repetitive work, integrate with your tools, and scale with your business.",
+  },
+  {
+    icon: <Network className="w-7 h-7" />,
+    title: "System Architecture & IT Consulting",
+    description:
+      "Technical architecture design, cloud infrastructure planning, and hands-on advisory to keep your systems reliable and future-proof.",
   },
   {
     icon: <BarChart3 className="w-7 h-7" />,
-    title: "Efficiency Tracking",
+    title: "Data Analytics & Dashboards",
     description:
-      "Real-time monitoring and analytics to measure productivity improvements and ROI at every stage.",
+      "Reporting pipelines and BI dashboards that turn raw data into decisions — built for the metrics that actually matter to you.",
   },
   {
-    icon: <Users className="w-7 h-7" />,
-    title: "Team Integration",
+    icon: <ShoppingCart className="w-7 h-7" />,
+    title: "E-commerce Development",
     description:
-      "Seamless integration with your existing teams and comprehensive training programmes for optimal adoption.",
+      "Online store setup and development across Shopify, WooCommerce, or fully custom builds — tailored to how you sell.",
   },
   {
-    icon: <HeadphonesIcon className="w-7 h-7" />,
-    title: "Ongoing Support",
+    icon: <Globe className="w-7 h-7" />,
+    title: "Web Development",
     description:
-      "Continuous optimisation and dedicated support to ensure sustained efficiency improvements long after go-live.",
+      "Custom websites and web applications designed and built for performance, from marketing sites to complex platforms.",
   },
   {
-    icon: <Blocks className="w-7 h-7" />,
-    title: "Beyond Workflows: Complete AI Development",
+    icon: <Smartphone className="w-7 h-7" />,
+    title: "Mobile Application Development",
     description:
-      "We don't just optimise existing processes — we build custom AI solutions from the ground up across every platform.",
+      "Native and cross-platform iOS and Android apps, built and shipped with the same care as our web products.",
+  },
+  {
+    icon: <Palette className="w-7 h-7" />,
+    title: "Branding & Positioning",
+    description:
+      "Brand identity, strategy, and market positioning that gives your business a clear, consistent voice across every touchpoint.",
+  },
+  {
+    icon: <Sparkles className="w-7 h-7" />,
+    title: "UI/UX & Product Design",
+    description:
+      "Design that supports the build, not just decorates it — wireframes, prototypes, and polished interfaces for web and app.",
+  },
+  {
+    icon: <Search className="w-7 h-7" />,
+    title: "Search Engine Optimisation (SEO)",
+    description:
+      "Organic search strategy focused on visibility and ranking that compounds — technical SEO, content, and on-page optimisation.",
+  },
+  {
+    icon: <Megaphone className="w-7 h-7" />,
+    title: "Digital & Social Media Marketing",
+    description:
+      "Paid and organic campaigns across digital channels, built to drive traffic that converts, not just impressions.",
     wide: true,
     subItems: [
-      { icon: <Globe className="w-5 h-5" />, label: "Web Applications", sub: "Full-stack web solutions with AI integration" },
-      { icon: <Smartphone className="w-5 h-5" />, label: "Mobile Apps", sub: "Native and cross-platform mobile solutions" },
-      { icon: <Blocks className="w-5 h-5" />, label: "Web3 Platforms", sub: "Blockchain and decentralised applications" },
+      { icon: <Rocket className="w-5 h-5" />, label: "Paid Campaigns", sub: "Targeted ad strategy across search & social" },
+      { icon: <Users className="w-5 h-5" />, label: "Organic Growth", sub: "Content and community-led acquisition" },
+      { icon: <Layers className="w-5 h-5" />, label: "Cross-Channel", sub: "Unified strategy across every platform" },
     ],
   },
 ];
@@ -94,91 +107,91 @@ const services = [
 const steps = [
   {
     num: "01",
-    title: "Comprehensive Assessment",
+    title: "Discovery & Strategy",
     description:
-      "Our team conducts a thorough 3–5 day on-site evaluation of your current workflows, identifying bottlenecks, inefficiencies, and optimisation opportunities.",
+      "We start by understanding your business, your users, and your goals — mapping out the right mix of services to get there.",
     bullets: [
-      "Process mapping and documentation",
-      "Data collection and analysis",
       "Stakeholder interviews",
-      "Performance baseline establishment",
+      "Technical & market assessment",
+      "Scope and roadmap definition",
+      "Success metrics established",
     ],
   },
   {
     num: "02",
-    title: "AI-Powered Analysis",
+    title: "Design & Architecture",
     description:
-      "Advanced machine-learning algorithms analyse your operational data to identify patterns, predict outcomes, and design optimal workflow configurations.",
+      "Product design and technical architecture come together before a single line of production code is written.",
     bullets: [
-      "Predictive modelling",
-      "Bottleneck identification",
-      "Resource optimisation",
-      "Performance forecasting",
+      "UI/UX wireframes & prototypes",
+      "System & data architecture",
+      "Brand and design system alignment",
+      "Stakeholder review & sign-off",
     ],
   },
   {
     num: "03",
-    title: "Custom Solution Design",
+    title: "Build & Integrate",
     description:
-      "We create tailored workflow solutions specifically designed for your industry, facility layout, and operational requirements.",
+      "Our team builds your software, app, store, or automation in-house — integrating AI, analytics, and third-party tools as needed.",
     bullets: [
-      "Workflow redesign",
-      "Technology integration",
-      "Process automation",
-      "Quality control systems",
+      "Agile, milestone-based delivery",
+      "Continuous testing & QA",
+      "AI/automation integration",
+      "Analytics & tracking setup",
     ],
   },
   {
     num: "04",
-    title: "Implementation & Training",
+    title: "Launch & Grow",
     description:
-      "Seamless deployment of new workflows with comprehensive team training and change-management support.",
+      "We launch with you, then keep optimising — through SEO, marketing, dashboards, and ongoing support.",
     bullets: [
-      "Phased implementation",
-      "Staff training programmes",
-      "Change management",
+      "Deployment & go-live support",
+      "SEO & marketing activation",
       "Performance monitoring",
+      "Ongoing iteration & support",
     ],
   },
 ];
 
-// ── Industries ─────────────────────────────────────────────────────────────────
+// ── Who We Work With ─────────────────────────────────────────────────────────────
 const industries = [
   {
-    icon: <Car className="w-6 h-6" />,
-    title: "Automotive Manufacturing",
-    desc: "Assembly line optimisation, quality control, and supply chain efficiency.",
-    result: "35% efficiency gain, 25% waste reduction",
+    icon: <Rocket className="w-6 h-6" />,
+    title: "Startups & SaaS",
+    desc: "MVP builds, product-market fit iteration, and scalable architecture for early-stage teams.",
+    result: "Faster time-to-launch, built to scale",
   },
   {
-    icon: <Plane className="w-6 h-6" />,
-    title: "Aerospace & Defence",
-    desc: "Precision manufacturing, compliance workflows, and safety protocols.",
-    result: "40% faster processing, 50% error reduction",
+    icon: <ShoppingCart className="w-6 h-6" />,
+    title: "E-commerce & Retail",
+    desc: "Custom storefronts, checkout optimisation, and marketing to convert traffic into sales.",
+    result: "Higher conversion, streamlined operations",
   },
   {
-    icon: <UtensilsCrossed className="w-6 h-6" />,
-    title: "Food & Beverage",
-    desc: "Production line optimisation, quality assurance, and inventory management.",
-    result: "30% throughput increase, 20% cost savings",
+    icon: <Network className="w-6 h-6" />,
+    title: "Professional Services",
+    desc: "Websites, branding, and automation that make client-facing operations run smoother.",
+    result: "Stronger positioning, less manual admin",
   },
   {
-    icon: <Cpu className="w-6 h-6" />,
-    title: "Electronics Manufacturing",
-    desc: "Component assembly, testing workflows, and quality control.",
-    result: "45% efficiency gain, 35% defect reduction",
+    icon: <Bot className="w-6 h-6" />,
+    title: "Operations-Heavy Businesses",
+    desc: "AI agents and automation that take repetitive workflows off your team's plate.",
+    result: "Reduced manual work, fewer errors",
   },
   {
-    icon: <FlaskConical className="w-6 h-6" />,
-    title: "Pharmaceuticals",
-    desc: "Compliance workflows, batch processing, and quality validation.",
-    result: "25% faster production, 99.9% compliance",
+    icon: <BarChart3 className="w-6 h-6" />,
+    title: "Data-Driven Teams",
+    desc: "Dashboards and analytics pipelines that make your data actually usable day to day.",
+    result: "Faster decisions, clearer reporting",
   },
   {
-    icon: <Factory className="w-6 h-6" />,
-    title: "Heavy Industry",
-    desc: "Equipment optimisation, maintenance workflows, and safety procedures.",
-    result: "30% uptime improvement, 40% maintenance cost reduction",
+    icon: <ShieldCheck className="w-6 h-6" />,
+    title: "Established Enterprises",
+    desc: "System architecture, IT consulting, and cybersecurity-aware infrastructure planning.",
+    result: "Reliable systems, future-proofed stack",
   },
 ];
 
@@ -199,14 +212,14 @@ export default function Services() {
       <section className="pt-32 pb-20 container mx-auto px-6">
         <motion.div {...fadeUp()} className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block mb-4 px-4 py-1.5 text-sm font-semibold rounded-full bg-primary/10 text-primary border border-primary/20 uppercase tracking-widest">
-            Complete Workflow Transformation
+            Full-Service Technology Partner
           </span>
           <h1 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">
             Our Services
           </h1>
           <p className="text-xl text-muted-foreground">
-            From AI-powered workflow optimisation to custom development across web, mobile, and Web3
-            platforms — end-to-end solutions that deliver measurable results.
+            From custom software and AI agents to branding, marketing, and everything in between —
+            one team, end-to-end, built to move your business forward.
           </p>
         </motion.div>
 
@@ -273,10 +286,10 @@ export default function Services() {
               Our Process
             </span>
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-              From Assessment to Optimisation
+              From Strategy to Launch — and Beyond
             </h2>
             <p className="text-muted-foreground text-lg">
-              A systematic approach that has delivered results for 500+ facilities worldwide.
+              A consistent process across every service line, so nothing falls through the cracks.
             </p>
           </motion.div>
 
@@ -307,7 +320,7 @@ export default function Services() {
                     Step {step.num} Deliverables
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    Detailed documentation, analysis reports, and actionable recommendations.
+                    Clear documentation, milestones, and sign-off at every stage.
                   </p>
                 </div>
               </motion.div>
@@ -316,18 +329,18 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ── Industries ── */}
+      {/* ── Who We Work With ── */}
       <section className="py-24 container mx-auto px-6">
         <motion.div {...fadeUp()} className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-block mb-4 px-4 py-1.5 text-sm font-semibold rounded-full bg-primary/10 text-primary border border-primary/20 uppercase tracking-widest">
-            Industries We Serve
+            Who We Work With
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-            Tailored for Your Industry
+            Built for Businesses Like Yours
           </h2>
           <p className="text-muted-foreground text-lg">
-            Our workflow optimisation solutions are adapted to the unique challenges and requirements
-            of each sector.
+            Our services flex to fit the stage and shape of your business — whether you're launching
+            or scaling.
           </p>
         </motion.div>
 
@@ -345,7 +358,7 @@ export default function Services() {
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">{ind.desc}</p>
               <div className="pt-4 border-t border-white/10">
                 <p className="text-xs font-semibold text-primary/70 uppercase tracking-widest mb-1">
-                  Typical Results
+                  Typical Outcome
                 </p>
                 <p className="text-sm font-medium text-primary">{ind.result}</p>
               </div>
@@ -359,28 +372,28 @@ export default function Services() {
         <div className="container mx-auto px-6">
           <motion.div {...fadeUp()} className="text-center max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
-              Ready to Transform Your Operations?
+              Ready to Build Something?
             </h2>
             <p className="text-muted-foreground text-lg mb-10">
-              Schedule a free on-site assessment and discover how AI-powered workflow optimisation
-              can revolutionise your efficiency and output.
+              Tell us what you're working on — software, an app, an AI agent, or a full brand
+              refresh — and we'll map out the right services to get you there.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/contact"
                 className="px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors"
               >
-                Schedule Free Assessment
+                Start a Project
               </a>
               <a
-                href="/workflow-optimization"
+                href="/contact"
                 className="px-8 py-4 rounded-full bg-white/5 border border-white/10 font-semibold hover:bg-white/10 transition-colors"
               >
-                View Full Services
+                Book a Free Consultation
               </a>
             </div>
             <p className="mt-6 text-sm text-muted-foreground">
-              Free assessment · No obligation · Results guaranteed
+              Free consultation · No obligation · Clear scope before we start
             </p>
           </motion.div>
         </div>

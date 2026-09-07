@@ -4,12 +4,8 @@
   "outputDirectory": "dist/public",
   "routes": [
     {
-      "src": "/favicon.png",
-      "dest": "/favicon.png"
-    },
-    {
-      "src": "/logo.png",
-      "dest": "/logo.png"
+      "src": "/(.*\\.(png|jpg|jpeg|svg|ico|gif|webp|mp3|mp4|woff|woff2|ttf|eot|json|txt))",
+      "dest": "/$1"
     },
     {
       "src": "/assets/(.*)",

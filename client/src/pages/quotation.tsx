@@ -43,9 +43,9 @@ export default function Quotation() {
     
     // EmailJS Configuration
     // Replace these with your actual EmailJS credentials
-    const serviceId = 'service_uhjn7qi';
-    const templateId = 'template_idiqwnr';
-    const publicKey = '_5OMEaM1z5IXystAq';
+    const serviceId = 'service_u3pu1fh';
+    const templateId = 'template_iprsgxr';
+    const publicKey = 'CxnEec1ufyHm_Wdki';
 
     // Prepare template parameters
     const templateParams = {

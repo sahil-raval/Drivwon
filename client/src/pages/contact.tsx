@@ -37,9 +37,9 @@ export default function Contact() {
     
     // EmailJS Configuration
     // Replace these with your actual EmailJS credentials
-    const serviceId = 'service_uhjn7qi';
-    const templateId = 'template_7uz3qfb';
-    const publicKey = '_5OMEaM1z5IXystAq';
+    const serviceId = 'service_u3pu1fh';
+    const templateId = 'template_zbt6g1l';
+    const publicKey = 'CxnEec1ufyHm_Wdki';
 
     // Prepare template parameters
     const templateParams = {
